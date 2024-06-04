@@ -1,0 +1,14 @@
+.cursor-mask {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: black; /* Warna masker kursor */
+    pointer-events: none;
+    z-index: 999;
+    mix-blend-mode: difference; /* Untuk efek warna berbeda */
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+  }
+  
+  /* Tambahkan gaya animasi kustom jika diperlukan */
+  
