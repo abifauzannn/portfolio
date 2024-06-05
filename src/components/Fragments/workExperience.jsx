@@ -36,8 +36,12 @@ const ProjectCard = ({
 }) => {
   return (
     <div
-      className={`flex flex-row bg-white justify-between shadow-lg text-start rounded-lg mb-5 p-5 gap-10 -ml-32 transition-opacity duration-300 ${
-        isHovered ? "opacity-100" : "opacity-50"
+      className={`flex flex-row bg-white justify-between shadow-lg text-start rounded-lg mb-5 p-5 gap-10 -ml-60 transition-opacity duration-300 ${
+        isHovered === id
+          ? "opacity-100"
+          : isHovered === null
+          ? "opacity-100"
+          : "opacity-50"
       }`}
       onMouseEnter={() => onMouseEnter(id)}
       onMouseLeave={onMouseLeave}
@@ -57,7 +61,7 @@ const ProjectCard = ({
 
 const PageTitle = () => {
   return (
-    <div className="text-7xl text-amber-600 -rotate-90 -translate-x-28 font-bebas tracking-wider font-bold">
+    <div className="text-7xl text-amber-600 -rotate-90 -translate-x-48 font-bebas tracking-wider font-bold">
       <span>Work Experience</span>
     </div>
   );
@@ -72,6 +76,14 @@ const WorkExperienceSection = () => {
     });
   }, []);
 
+  const handleMouseEnter = (id) => {
+    setHoveredCard(id);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredCard(null);
+  };
+
   return (
     <div className="flex-1 flex flex-col gap-5">
       {project.map((item) => (
@@ -82,9 +94,9 @@ const WorkExperienceSection = () => {
             description={item.description}
             years={item.years}
             position={item.position}
-            isHovered={hoveredCard === item.id}
-            onMouseEnter={setHoveredCard}
-            onMouseLeave={() => setHoveredCard(null)}
+            isHovered={hoveredCard}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           />
         </div>
       ))}
