@@ -36,7 +36,7 @@ const ProjectCard = ({
 }) => {
   return (
     <div
-      className={`flex flex-row bg-white justify-between shadow-lg text-start rounded-lg mb-5 p-5 gap-10 -ml-60 transition-opacity duration-300 ${
+      className={`flex flex-col lg:flex-row bg-white justify-between shadow-lg text-start rounded-lg mb-5 p-5 gap-1 lg:gap-10 lg:-ml-60 transition-opacity duration-300 ${
         isHovered === id
           ? "opacity-100"
           : isHovered === null
@@ -50,7 +50,7 @@ const ProjectCard = ({
         <p className="text-start w-40 font-bebas text-xl">{years}</p>
       </div>
       <div className="">
-        <h2 className="text-amber-600 text-3xl sm:text-1xl font-extrabold md:text-5xl lg:text-xl font-bebas">
+        <h2 className="text-amber-600 text-2xl sm:text-1xl font-extrabold md:text-2xl lg:text-xl font-bebas">
           {position} | {companyName}
         </h2>
         <p className="text-black font-sans text-justify">{description}</p>
@@ -61,7 +61,7 @@ const ProjectCard = ({
 
 const PageTitle = () => {
   return (
-    <div className="text-7xl text-amber-600 -rotate-90 -translate-x-48 font-bebas tracking-wider font-bold">
+    <div className="text-3xl md:text-5xl lg:text-7xl text-amber-600 lg:-rotate-90 lg:-translate-x-48 font-bebas tracking-wider font-bold mb-2 underline sm:no-underline">
       <span>Work Experience</span>
     </div>
   );
@@ -85,7 +85,7 @@ const WorkExperienceSection = () => {
   };
 
   return (
-    <div className="flex-1 flex flex-col gap-5">
+    <div className="flex-1 flex flex-col gap-2 lg:gap-5">
       {project.map((item) => (
         <div key={item.id} data-aos="fade-up">
           <ProjectCard
@@ -106,7 +106,7 @@ const WorkExperienceSection = () => {
 
 const WorkExperienceLayout = () => {
   return (
-    <div className="flex h-[100vh] w-full py-4 px-5 md:px-28 flex-row items-center">
+    <div className="flex lg:h-[100vh] w-full py-10 lg:py-4 px-5 md:px-28 flex-col lg:flex-row lg:items-center lg:gap-10">
       <PageTitle />
       <WorkExperienceSection />
     </div>
